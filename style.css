@@ -1,61 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+body {
+  color: var(--black);
+  font-size: var(--font-size-base);
+  background-color: #FCE4EC; 
+  margin: 0; 
+  font-family: 'Roboto', sans-serif;
+
+}
 
 :root {
   --black: #1c1c1c;
   --gray: #7E7E7E;
   --gray-light: #E4E4E4;
   --red: #b30000;
-  --font-size-base: 1rem;
-  --font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
-  --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
-  --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+  --font-size-base: 16px; 
+  --font-size-md: 18px; 
+  --font-size-lg: 22px; 
+  --font-size-xl: 36px; 
   --border-radius: 10px;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--black);
-  font-size: var(--font-size-base);
-  background-color: #FAF5EE;
-  background-image: url("/img/img-noise-361x370.png");
-  margin: 0;
+
+a {
+  color: #1c1c1c; 
 }
 
-a { color: var(--black); }
-h1 { font-size: var(--font-size-xl); }
-h2 { font-size: var(--font-size-lg); }
-h3 { font-size: var(--font-size-md); }
+h1 {
+  font-size: 3rem; 
+}
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
-select,
-textarea {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  display: block;
+h2 {
+  font-size: 2.5rem; 
+}
+
+h3 {
+  font-size: 1.58rem; 
+}
+
+
+input[type="text"],input[type="email"],input[type="password"],input[type="search"],select,textarea {
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  display: block;
   width: 100%;
-  padding: 0.7rem 0.75rem;
-  margin-bottom: 1rem;
+  padding: 1rem; 
+  margin-bottom: 1.5rem; 
+  font-size: 1.2rem; 
 }
-
-.btn {
-  background-color: var(--black);
-  border: none;
-  color: white; 
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px; 
-  cursor: pointer;
-}
-
-.btn-delete {
-  padding: 10px 16px;
+.btn-delete { 
   background-color: var(--red);
-}
 
+  padding: 10px 16px;
+}
+.btn {  
+  color: var(--black);
+  background-color: #FFC0CB; 
+  padding: 14px 28px; 
+  text-decoration: none;
+  margin: 8px 4px; 
+  cursor: pointer; 
+  border: none;
+
+}
+.btn:hover {
+  background-color: #FF69B4; 
+}
 
 img {
   width: 100%;
@@ -72,32 +81,75 @@ img {
   padding: 20px 0;
 }
 
-.image {
-  max-height: 528px;
-  filter: drop-shadow(0px 44px 34px rgba(0, 0, 0, 0.25));
+.image {  
   overflow: hidden;
-  border-radius: var(--border-radius);
-}
+  max-height: 528px;
+  border-radius: 20px; 
+  filter: drop-shadow(0px 44px 34px rgba(0, 0, 0, 0.25));
+
 
 
 .header {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: 
-  "logo button"
-  "menu menu";
-  padding-top: 10px;
+  padding: 10px;
+  background-color: #ffebcd; 
 }
 
+.header__logo {
+  font-weight: 800;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.header__logo:hover {
+  text-decoration: underline;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1rem;
+  font-weight: 600;
+}
+
+.header__button {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.header__button button {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  border: 0;
+  padding: 6px 12px;
+  background: #ffebcd; 
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.header__button button:hover {
+  background: #ffa07a; 
+}
+
+
 @media only screen and (min-width: 768px) {
-  .header {
+  .header {  
     grid-template-columns: auto 1fr auto;
-    grid-template-areas: 
-    "logo menu button";
+    grid-template-areas;
+   display: grid; 
+    grid-template-rows: auto;
+      "logo menu button";
+  }
+
+  .header__nav {
+    justify-content: flex-end; 
   }
 }
+
 
 .header_logo {
   font-weight: 800;
@@ -250,14 +302,8 @@ img {
 }
 
 
-/* Footer */
-.footer {
-  margin: 4rem;
-  text-align: center;
-}
 
 
-/* Dashboard Admin */
 .admin-title {
   display: flex;
   justify-content: space-between;
@@ -290,7 +336,6 @@ img {
   padding: 10px 0;
 }
 
-/* SeachBar */
 .searchBar {
   visibility: hidden;
   transform: translateY(-100px);
