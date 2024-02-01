@@ -1,0 +1,18 @@
+<div class="title">
+  <h2>Blogs</h2>
+  <a href="/add-post" class="button">Add New blog</a>
+</div>
+
+<ul class="adpost">
+  <li>
+    <a href="/post/POST_ID">TITLE &nearr;</a>
+    <div class="control">
+      <a href="/edit-post/POST_ID" class="btn">Edit</a>
+
+      <form action="/delete-post/POST_ID?_method=DELETE" method="POST">
+        <input type="submit" value="Delete" class="btn-delete btn">
+      </form>
+    </div>
+  </li>
+</ul>
+<a href="/dashboard">&larr; Back</a>
