@@ -1,16 +1,38 @@
 <div class="title">
-  <h2>Blogs</h2>
-  <a href="/add-post" class="button">Add New blog</a>
+  <h2>blogs</h2>
+  <a href="/add-post" class="button">Add New</a>
 </div>
-<ul class="adpost">
-  <li>
-    <a href="/post/POST_ID">Title &nearr;</a>
-    <div class="control">
-      <a href="/edit-post/POST_ID" class="btn">Edit</a>
-      <form action="/delete-post/POST_ID?_method=DELETE" method="POST">
-        <input type="submit" " class="btn-delete sub" value="Delete>
-      </form>
-    </div>
-  </li>
+<ul class="admin-posts" id="postList">
 </ul>
-<a href="/control">&larr; Back</a>
+<script>
+  var data = [
+    { _id: '1', title: 'Post 1', body: 'Content of Post 1' },
+    { _id: '2', title: 'Post 2', body: 'Content of Post 2' },
+    // Add more 
+  ];
+  var postList = document.getElementById('postList');
+  data.forEach(post => {var listItem = document.createElement('li');
+    listItem.innerHTML = `<a href="/post/${post._id}">
+        ${post.title} &nearr;
+      </a>
+      <div class="admin-post-controls">
+        <a href="/edit-post/${post._id}" class="btn">Edit</a>
+        <button onclick="deletePost('${post._id}')" class="btn-delete btn">Delete</button>
+      </div>
+    `;
+    postList.appendChild(listItem);
+  });
+
+  function deletePost(postId) {
+    fetch(`/delete-post/${postId}?_method=DELETE`, {
+      method: 'POST',
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Post deleted:', data);
+    })
+    .catch(error => {
+      console.error('Error deleting post:', error);
+    });
+  }
+</script>
